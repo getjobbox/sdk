@@ -151,6 +151,8 @@ try {
 
 ## Examples
 
+- **Laravel job board (PHP SDK):** [`../examples/laravel`](../examples/laravel)
+- **CodeIgniter 4 job board (PHP SDK):** [`../examples/codeigniter`](../examples/codeigniter)
 - Vue 3 job board: [`../examples/vue`](../examples/vue)
 - React job board: [`../examples/react`](../examples/react)
 - Angular job board: [`../examples/angular`](../examples/angular)

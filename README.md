@@ -28,6 +28,9 @@ mkdocs serve
 | Vue.js job board | [`examples/vue/`](./examples/vue) | Vue 3 + Vite + Node or Python SDK proxy |
 | React job board | [`examples/react/`](./examples/react) | React + Vite + Node or Python SDK proxy |
 | Angular job board | [`examples/angular/`](./examples/angular) | Angular 19 + CLI + Node or Python SDK proxy |
+| Next.js job board | [`examples/next/`](./examples/next) | Next.js App Router + Node SDK Route Handlers |
+| CodeIgniter job board | [`examples/codeigniter/`](./examples/codeigniter) | CodeIgniter 4 + PHP SDK (`getjobbox/sdk`) |
+| Laravel job board | [`examples/laravel/`](./examples/laravel) | Laravel + PHP SDK (`getjobbox/sdk`) |
 
 ## Quick facts
 

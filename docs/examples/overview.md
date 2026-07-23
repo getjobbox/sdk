@@ -15,13 +15,23 @@ Browser  →  your server (/api/*)  →  JobBox API
 
 ## Available examples
 
-| Example | Stack | Default UI port | Default API port |
-|---------|--------|-----------------|------------------|
-| [Vue](vue.md) | Vue 3 + Vite | 5174 | (Node in-process) / 5175 Python |
-| [React](react.md) | React + Vite | 5176 | (Node in-process) / 5177 Python |
-| [Angular](angular.md) | Angular 19 | 5178 | 5179 Node / Python variant |
+### JavaScript / TypeScript
 
-Each folder has its own README, `.env.example`, and setup steps.
+| Example | Stack | Default port | SDK |
+|---------|--------|--------------|-----|
+| [Vue](vue.md) | Vue 3 + Vite | 5174 | Node (in-process) / Python on 5175 |
+| [React](react.md) | React + Vite | 5176 | Node (in-process) / Python on 5177 |
+| [Angular](angular.md) | Angular 19 | 5178 | Node / Python on 5179 |
+| [Next.js](next.md) | Next.js App Router | 3001 | Node Route Handlers |
+
+### PHP
+
+| Example | Stack | Default port | SDK |
+|---------|--------|--------------|-----|
+| [CodeIgniter](codeigniter.md) | CodeIgniter 4 | 8080 | `getjobbox/sdk` |
+| [Laravel](laravel.md) | Laravel 13 | 8081 | `getjobbox/sdk` |
+
+Each folder has its own README, `.env.example` (or `.env.local` for Next), and setup steps.
 
 ---
 
@@ -39,16 +49,49 @@ Advanced filters (`workMode`, salary, dates, …) are fully supported by the SDK
 
 ---
 
-## Quick start (any example)
+## Quick start
 
-```bash
-cd examples/vue   # or react / angular
-cp .env.example .env
-# set JOBBOX_API_KEY from JobBox → Settings → Developer
-npm install
-npm run dev
-```
+=== "SPA (Vue / React / Angular)"
 
-Never commit `.env`.
+    ```bash
+    cd examples/vue   # or react / angular
+    cp .env.example .env
+    # set JOBBOX_API_KEY
+    npm install
+    npm run dev
+    ```
+
+=== "Next.js"
+
+    ```bash
+    cd examples/next
+    cp .env.example .env.local
+    # set JOBBOX_API_KEY
+    npm install
+    npm run dev
+    ```
+
+=== "CodeIgniter"
+
+    ```bash
+    cd examples/codeigniter
+    cp .env.example .env
+    # set JOBBOX_API_KEY
+    composer install
+    composer serve
+    ```
+
+=== "Laravel"
+
+    ```bash
+    cd examples/laravel
+    cp .env.example .env
+    php artisan key:generate
+    # set JOBBOX_API_KEY
+    composer install
+    php artisan serve --port=8081
+    ```
+
+Never commit `.env` / `.env.local`.
 
 Source: [github.com/getjobbox/sdk/tree/main/examples](https://github.com/getjobbox/sdk/tree/main/examples)

@@ -22,3 +22,10 @@ Publishing is handled by the [publish workflow](https://github.com/getjobbox/sdk
 - **Python / PHP** → GitHub Release assets  
 
 Cross-language contract changes are tracked in [STANDARD.md](https://github.com/getjobbox/sdk/blob/main/STANDARD.md).
+
+## Docs site
+
+Example apps documented under **Examples** in this site:
+
+- JS/TS: Vue, React, Angular, Next.js
+- PHP: CodeIgniter, Laravel

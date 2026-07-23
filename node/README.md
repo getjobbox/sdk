@@ -111,6 +111,7 @@ try {
 
 ## Examples
 
+- **Next.js job board (App Router):** [`../examples/next`](../examples/next)
 - Vue 3 job board: [`../examples/vue`](../examples/vue)
 - React job board: [`../examples/react`](../examples/react)
 - Angular job board: [`../examples/angular`](../examples/angular)

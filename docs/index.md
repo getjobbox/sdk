@@ -32,7 +32,11 @@ Official partner SDKs for the [JobBox](https://getjobbox.com) Integration / SDK 
 
 Ready-made job boards that call the SDK from a local proxy:
 
-- [Vue](examples/vue.md) · [React](examples/react.md) · [Angular](examples/angular.md)
+**JS / TS:** [Vue](examples/vue.md) · [React](examples/react.md) · [Angular](examples/angular.md) · [Next.js](examples/next.md)
+
+**PHP:** [CodeIgniter](examples/codeigniter.md) · [Laravel](examples/laravel.md)
+
+See the [examples overview](examples/overview.md) for ports and quick starts.
 
 ## Canonical contract
 

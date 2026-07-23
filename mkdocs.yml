@@ -91,6 +91,9 @@ nav:
       - Vue: examples/vue.md
       - React: examples/react.md
       - Angular: examples/angular.md
+      - Next.js: examples/next.md
+      - CodeIgniter: examples/codeigniter.md
+      - Laravel: examples/laravel.md
   - Changelog: changelog.md
 
 extra:

@@ -58,7 +58,7 @@ If you have the repo cloned:
 npm install file:../path/to/sdk/node
 ```
 
-The sample apps under `examples/` use this pattern (`"@getjobbox/sdk": "file:../../node"`).
+The sample apps under `examples/` use this pattern (`"@getjobbox/sdk": "file:../../node"`). See [Vue](../examples/vue.md), [React](../examples/react.md), [Angular](../examples/angular.md), and [Next.js](../examples/next.md).
 
 ### Verify
 
@@ -155,6 +155,8 @@ git clone https://github.com/getjobbox/sdk.git
 cd sdk/php
 composer install
 ```
+
+Sample apps that path-require this package: [CodeIgniter](../examples/codeigniter.md), [Laravel](../examples/laravel.md).
 
 ### Verify
 

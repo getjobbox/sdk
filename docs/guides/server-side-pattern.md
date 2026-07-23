@@ -15,10 +15,13 @@ Browser  →  your server (/api/*)  →  JobBox API (X-JobBox-Api-Key)
 ## Recommended architecture
 
 1. The browser talks only to **your** `/api/*` routes (no JobBox key in the client).
-2. A small Node, Python, or PHP server holds `JOBBOX_API_KEY` and calls the SDK.
+2. A small Node, Python, PHP, or Next.js Route Handler holds `JOBBOX_API_KEY` and calls the SDK.
 3. The UI never imports `@getjobbox/sdk` / `getjobbox` / `GetJobBox\JobBox` or reads the secret.
 
-Official sample boards follow this pattern: [Vue](../examples/vue.md), [React](../examples/react.md), [Angular](../examples/angular.md).
+Official sample boards follow this pattern:
+
+- **JS / TS:** [Vue](../examples/vue.md), [React](../examples/react.md), [Angular](../examples/angular.md), [Next.js](../examples/next.md)
+- **PHP:** [CodeIgniter](../examples/codeigniter.md), [Laravel](../examples/laravel.md)
 
 ---
 
@@ -113,6 +116,8 @@ Official sample boards follow this pattern: [Vue](../examples/vue.md), [React](.
     ```
 
 The browser then calls `/api/jobs?search=react` — never JobBox directly.
+
+Full framework demos: [CodeIgniter](../examples/codeigniter.md), [Laravel](../examples/laravel.md). For App Router Route Handlers, see [Next.js](../examples/next.md).
 
 ---
 

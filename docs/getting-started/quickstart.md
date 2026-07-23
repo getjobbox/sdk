@@ -147,4 +147,5 @@ The SDK unwraps the API success envelope (`{ success, data }`) so you receive th
 | Page through large result sets | [Pagination](../guides/pagination.md) |
 | Related roles | [Similar jobs](../guides/similar-jobs.md) |
 | Category chips / country options | [Metadata](../guides/metadata.md) |
-| Wire a Vue / React / Angular board | [Examples](../examples/overview.md) |
+| Wire a Vue / React / Angular / Next.js board | [Examples](../examples/overview.md) |
+| Wire a CodeIgniter / Laravel board | [Examples](../examples/overview.md) |
