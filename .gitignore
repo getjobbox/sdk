@@ -1,0 +1,7 @@
+# MkDocs / local tooling
+site/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.cache/

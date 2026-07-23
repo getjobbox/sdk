@@ -2,7 +2,16 @@
 
 Official partner SDKs for the JobBox Integration/SDK API.
 
+**Full documentation:** [getjobbox.github.io/sdk](https://getjobbox.github.io/sdk/) (MkDocs) — install, auth, filters, and multi-language examples.
+
 **Canonical rules:** [STANDARD.md](./STANDARD.md) - all languages must follow it.
+
+### Preview docs locally
+
+```bash
+pip install -r requirements-docs.txt
+mkdocs serve
+```
 
 ## Languages
 

@@ -170,19 +170,25 @@ Release tags are language-prefixed and independent: `node-vX.Y.Z`, `php-vX.Y.Z`,
 
 ## 9. Documentation bar
 
+### MkDocs site (`docs/` + `mkdocs.yml`)
+
+- Partner-facing guides with Node / Python / PHP examples (install → config → Jobs filters)
+- Built with Material for MkDocs; deploy via GitHub Pages (see `.github/workflows/docs.yml`)
+- Preview locally: `pip install -r requirements-docs.txt && mkdocs serve`
+
 ### Language `README.md`
 
 - Install instructions
 - Auth via env `JOBBOX_API_KEY` (warn: never commit keys)
 - Quickstart for `jobs.list`
-- Link to [`../STANDARD.md`](./STANDARD.md)
+- Link to [`../STANDARD.md`](./STANDARD.md) and the MkDocs site for advanced filters / examples
 - Error handling notes
-- Jobs filter table (or link to Integration docs)
+- Jobs filter table (or link to MkDocs / Integration docs)
 
 ### Root `sdk/README.md`
 
 - Language status matrix (Stable / In progress / Planned)
-- Link to this standard
+- Link to this standard and the MkDocs docs site
 - Default base URL and auth header summary (one short paragraph max)
 
 ---

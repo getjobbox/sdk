@@ -1,0 +1,99 @@
+site_name: JobBox SDK
+site_description: Official partner SDKs for the JobBox Integration API (Node, Python, PHP)
+site_url: https://getjobbox.github.io/sdk/
+repo_url: https://github.com/getjobbox/sdk
+repo_name: getjobbox/sdk
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/logo-light.webp
+  favicon: assets/favicon.webp
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: blue grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: blue grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - Installation: getting-started/installation.md
+      - Authentication: getting-started/authentication.md
+      - Configuration: getting-started/configuration.md
+      - Quickstart: getting-started/quickstart.md
+  - Guides:
+      - List jobs: guides/list-jobs.md
+      - Search and filters: guides/search-and-filters.md
+      - Pagination: guides/pagination.md
+      - Get a job: guides/get-job.md
+      - Similar jobs: guides/similar-jobs.md
+      - Metadata: guides/metadata.md
+      - Error handling: guides/error-handling.md
+      - Server-side pattern: guides/server-side-pattern.md
+  - Reference:
+      - Client: reference/client.md
+      - Jobs API: reference/jobs-api.md
+      - Filters: reference/filters.md
+      - Errors: reference/errors.md
+  - Examples:
+      - Overview: examples/overview.md
+      - Vue: examples/vue.md
+      - React: examples/react.md
+      - Angular: examples/angular.md
+  - Changelog: changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/getjobbox/sdk

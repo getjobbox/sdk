@@ -2,6 +2,7 @@
 
 Official JobBox Node.js / TypeScript SDK.
 
+**Docs:** [JobBox SDK documentation](https://getjobbox.github.io/sdk/) (install, filters, examples)  
 **Cross-language rules:** [`../STANDARD.md`](../STANDARD.md)
 
 ## Install
