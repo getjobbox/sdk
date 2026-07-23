@@ -1,0 +1,49 @@
+{
+  "name": "@getjobbox/sdk",
+  "version": "0.1.0",
+  "description": "Official JobBox Node.js SDK — Jobs public catalog and partner API key auth",
+  "license": "UNLICENSED",
+  "private": false,
+  "author": "JobBox",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getjobbox/jobbox.git",
+    "directory": "sdk/node"
+  },
+  "homepage": "https://getjobbox.com",
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --sourcemap",
+    "test": "node --import tsx --test tests/**/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
