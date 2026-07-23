@@ -6,7 +6,7 @@
 
 This document is the source of truth for JobBox partner SDKs. Language packages (Node, PHP, Python, and any future runtime) **must** conform. When conventions or the HTTP surface change, update this file first, then update language packages.
 
-Root [`README.md`](./README.md) is an index only — it does not redefine these rules.
+Root [`README.md`](./README.md) is an index only - it does not redefine these rules.
 
 ---
 
@@ -52,7 +52,7 @@ sdk/
 ### Rules
 
 1. Allowed language directories include: `node`, `php`, `python` (and later `go`, `ruby`, etc.).
-2. **No** language sources at `sdk/` root — only `STANDARD.md` and `README.md`.
+2. **No** language sources at `sdk/` root - only `STANDARD.md` and `README.md`.
 3. Hard package boundary: SDKs **must not** import JobBox `backend/`, `frontend/`, `shared/`, `workers/`, or `apps-backend/` code.
 4. Each language publishes independently.
 
@@ -69,8 +69,8 @@ sdk/
 | JWT | Not used for the SDK Jobs surface |
 | Content-Type | `application/json` when sending a body |
 | Wire naming | **snake_case** for query params and JSON fields as returned by the API |
-| Success envelope | `{ success, code?, message?, data }` — SDKs unwrap `data` on success |
-| Error body | Prefer `{ success: false, code?, message?, … }` — map into typed SDK errors |
+| Success envelope | `{ success, code?, message?, data }` - SDKs unwrap `data` on success |
+| Error body | Prefer `{ success: false, code?, message?, … }` - map into typed SDK errors |
 
 ### Jobs endpoints (v1)
 
@@ -100,7 +100,7 @@ Keys are created via authenticated REST (`POST /api/v1/api-keys` with JWT). SDKs
 
 1. Entry type named **`JobBox`** (or the closest idiomatic equivalent if the name conflicts).
 2. Construct with config: required `apiKey`; optional `baseUrl`, `timeout` / `timeoutMs`, `maxRetries`, and a custom HTTP transport where the language supports it.
-3. **Resource-oriented:** `client.jobs.*` — do not expose flat top-level RPCs for Jobs.
+3. **Resource-oriented:** `client.jobs.*` - do not expose flat top-level RPCs for Jobs.
 4. Future HTTP modules become new resources (`client.applications`, …), not methods dumped on the root client.
 5. Public method names in-language should be idiomatic:
    - TypeScript/JavaScript: **camelCase** (`workMode`, `perPage`)
@@ -154,7 +154,7 @@ Keys are created via authenticated REST (`POST /api/v1/api-keys` with JWT). SDKs
 
 ## 8. Testing bar
 
-1. Unit tests with **mocked HTTP** — no live API required for default CI.
+1. Unit tests with **mocked HTTP** - no live API required for default CI.
 2. Must cover:
    - Auth header presence and name
    - Query serialization (including CSV for arrays)
@@ -214,5 +214,5 @@ Use this checklist when reviewing any language SDK PR:
 
 ## 12. Reference implementation
 
-- **Node (TypeScript):** [`sdk/node`](./node) — package `@getjobbox/sdk`
+- **Node (TypeScript):** [`sdk/node`](./node) - package `@getjobbox/sdk`
 - HTTP surface implemented by JobBox API: `/api/v1/sdk/jobs*`

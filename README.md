@@ -2,7 +2,7 @@
 
 Official partner SDKs for the JobBox Integration/SDK API.
 
-**Canonical rules:** [STANDARD.md](./STANDARD.md) — all languages must follow it.
+**Canonical rules:** [STANDARD.md](./STANDARD.md) - all languages must follow it.
 
 ## Languages
 

@@ -1,7 +1,7 @@
 {
   "name": "@getjobbox/sdk",
   "version": "0.1.0",
-  "description": "Official JobBox Node.js SDK — Jobs public catalog and partner API key auth",
+  "description": "Official JobBox Node.js SDK - Jobs public catalog and partner API key auth",
   "license": "UNLICENSED",
   "private": false,
   "author": "JobBox",

@@ -96,7 +96,7 @@ try {
 | `baseUrl` | `https://api.getjobbox.com` | No trailing slash needed |
 | `timeoutMs` | `30000` | |
 | `maxRetries` | `2` | GET retries on 429/5xx |
-| `appName` | — | Appended to User-Agent |
+| `appName` | - | Appended to User-Agent |
 | `fetch` | `globalThis.fetch` | Injectable for tests |
 
 ## Development
