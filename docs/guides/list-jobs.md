@@ -91,7 +91,7 @@ The HTTP API returns:
 }
 ```
 
-SDKs return the inner `data` object only. You never need to check `success` on the happy path — failures throw typed errors (see [Error handling](error-handling.md)).
+SDKs return the inner `data` object only. You never need to check `success` on the happy path - failures throw typed errors (see [Error handling](error-handling.md)).
 
 ---
 
@@ -139,6 +139,6 @@ Pass any combination of [list filters](search-and-filters.md):
 
 ## Related
 
-- [Search and filters](search-and-filters.md) — every filter with examples  
+- [Search and filters](search-and-filters.md) - every filter with examples  
 - [Pagination](pagination.md)  
 - [Filters reference](../reference/filters.md)

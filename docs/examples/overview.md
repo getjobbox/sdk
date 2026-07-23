@@ -45,7 +45,7 @@ Each folder has its own README, `.env.example` (or `.env.local` for Next), and s
 | HR locked route | `jobs.list({ category: 'hr' })` |
 | Apply on JobBox | Link to `app.getjobbox.com/j/:id` |
 
-Advanced filters (`workMode`, salary, dates, …) are fully supported by the SDK; the sample UIs focus on search, category, and pagination. Extend your proxy to forward more query params as needed — see [Search and filters](../guides/search-and-filters.md).
+Advanced filters (`workMode`, salary, dates, …) are fully supported by the SDK; the sample UIs focus on search, category, and pagination. Extend your proxy to forward more query params as needed - see [Search and filters](../guides/search-and-filters.md).
 
 ---
 

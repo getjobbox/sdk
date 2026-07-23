@@ -1,6 +1,6 @@
 # JobBox SDK
 
-Official partner SDKs for the [JobBox](https://getjobbox.com) Integration / SDK API. Use them to list, search, and fetch jobs from the JobBox catalog with a keyed API — from Node.js, Python, or PHP.
+Official partner SDKs for the [JobBox](https://getjobbox.com) Integration / SDK API. Use them to list, search, and fetch jobs from the JobBox catalog with a keyed API - from Node.js, Python, or PHP.
 
 ## Languages
 

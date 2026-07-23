@@ -16,11 +16,11 @@ Entry type: **`JobBox`**. Construct once; call resource methods on `jobs`.
 
     | Option | Type | Default | Required |
     |--------|------|---------|----------|
-    | `apiKey` | `string` | — | yes |
+    | `apiKey` | `string` | - | yes |
     | `baseUrl` | `string` | `https://api.getjobbox.com` | no |
     | `timeoutMs` | `number` | `30000` | no |
     | `maxRetries` | `number` | `2` | no |
-    | `appName` | `string` | — | no |
+    | `appName` | `string` | - | no |
     | `fetch` | `typeof fetch` | `globalThis.fetch` | no |
     | `defaultHeaders` | `Record<string, string>` | `{}` | no |
 
@@ -34,11 +34,11 @@ Entry type: **`JobBox`**. Construct once; call resource methods on `jobs`.
 
     | Option | Type | Default | Required |
     |--------|------|---------|----------|
-    | `api_key` | `str` | — | yes |
+    | `api_key` | `str` | - | yes |
     | `base_url` | `str` | `https://api.getjobbox.com` | no |
     | `timeout` | `float` | `30.0` | no |
     | `max_retries` | `int` | `2` | no |
-    | `app_name` | `str` | — | no |
+    | `app_name` | `str` | - | no |
     | `transport` | callable | urllib | no |
     | `default_headers` | `dict` | `{}` | no |
 
@@ -52,11 +52,11 @@ Entry type: **`JobBox`**. Construct once; call resource methods on `jobs`.
 
     | Option | Type | Default | Required |
     |--------|------|---------|----------|
-    | `apiKey` | `string` | — | yes |
+    | `apiKey` | `string` | - | yes |
     | `baseUrl` | `string` | `https://api.getjobbox.com` | no |
     | `timeout` | `float` | `30.0` | no |
     | `maxRetries` | `int` | `2` | no |
-    | `appName` | `string` | — | no |
+    | `appName` | `string` | - | no |
     | `transport` | transport / callable | cURL | no |
     | `defaultHeaders` | `array` | `[]` | no |
 

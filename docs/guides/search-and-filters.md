@@ -34,7 +34,7 @@ Full-text style search over the catalog (titles, roles, and related fields as im
     $result = $jobbox->jobs->list(['search' => 'react engineer']);
     ```
 
-Combine with other filters — search narrows the set; filters refine it further.
+Combine with other filters - search narrows the set; filters refine it further.
 
 ---
 

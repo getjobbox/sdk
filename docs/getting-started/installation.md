@@ -13,7 +13,7 @@ Install the JobBox SDK for your runtime. All packages are currently at **v0.1.0*
 
 Package: **`@getjobbox/sdk`**
 
-### Option A — GitHub Packages (recommended)
+### Option A - GitHub Packages (recommended)
 
 Published on [GitHub Packages](https://github.com/orgs/getjobbox/packages). Add a project `.npmrc`:
 
@@ -36,7 +36,7 @@ yarn add @getjobbox/sdk
 pnpm add @getjobbox/sdk
 ```
 
-### Option B — Install from Git
+### Option B - Install from Git
 
 Install directly from the public SDK repository (subdirectory `node/`):
 
@@ -50,7 +50,7 @@ Pin to a release tag when you want a fixed version:
 npm install git+https://github.com/getjobbox/sdk.git#node-v0.1.0:node
 ```
 
-### Option C — Local path (development)
+### Option C - Local path (development)
 
 If you have the repo cloned:
 
@@ -76,7 +76,7 @@ The package ships dual **ESM + CJS** builds with TypeScript declarations. Zero r
 
 Package: **`getjobbox`**
 
-### Option A — GitHub Releases wheel (recommended)
+### Option A - GitHub Releases wheel (recommended)
 
 ```bash
 pip install "https://github.com/getjobbox/sdk/releases/download/python-v0.1.0/getjobbox-0.1.0-py3-none-any.whl"
@@ -84,7 +84,7 @@ pip install "https://github.com/getjobbox/sdk/releases/download/python-v0.1.0/ge
 
 When a newer release is published, bump the tag and wheel name in the URL (see [Releasing](https://github.com/getjobbox/sdk#releasing)).
 
-### Option B — From a clone (editable)
+### Option B - From a clone (editable)
 
 ```bash
 git clone https://github.com/getjobbox/sdk.git
@@ -110,7 +110,7 @@ Zero runtime dependencies (stdlib `urllib`).
 
 Package: **`getjobbox/sdk`**
 
-### Option A — Composer + GitHub Release zip (recommended)
+### Option A - Composer + GitHub Release zip (recommended)
 
 In your app `composer.json`:
 
@@ -148,7 +148,7 @@ composer update getjobbox/sdk
 
 Bump `version` and the release download URL when upgrading.
 
-### Option B — From a clone
+### Option B - From a clone
 
 ```bash
 git clone https://github.com/getjobbox/sdk.git
@@ -187,6 +187,6 @@ See the repo [CHANGELOG](../changelog.md) links for each language.
 
 ## Next steps
 
-- [Authentication](authentication.md) — create and store an API key  
-- [Configuration](configuration.md) — client options  
-- [Quickstart](quickstart.md) — first `jobs.list` call
+- [Authentication](authentication.md) - create and store an API key  
+- [Configuration](configuration.md) - client options  
+- [Quickstart](quickstart.md) - first `jobs.list` call

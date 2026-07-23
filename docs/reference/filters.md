@@ -89,5 +89,5 @@ interface JobListParams {
 
 ## Guides
 
-- [Search and filters](../guides/search-and-filters.md) — detailed examples per filter  
+- [Search and filters](../guides/search-and-filters.md) - detailed examples per filter  
 - [Pagination](../guides/pagination.md)

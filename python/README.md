@@ -104,14 +104,14 @@ except JobBoxApiError as err:
 | `base_url` | `https://api.getjobbox.com` | No trailing slash needed |
 | `timeout` | `30.0` | Seconds |
 | `max_retries` | `2` | GET retries on 429/5xx |
-| `app_name` | — | Appended to User-Agent |
+| `app_name` | - | Appended to User-Agent |
 | `transport` | stdlib `urllib` | Injectable for tests |
 | `default_headers` | `{}` | Extra headers |
 
 ## Errors
 
-- `JobBoxApiError` — non-2xx API response (`status`, `code`, `request_id`, `body`)
-- `JobBoxNetworkError` — transport / timeout (`cause_error`)
+- `JobBoxApiError` - non-2xx API response (`status`, `code`, `request_id`, `body`)
+- `JobBoxNetworkError` - transport / timeout (`cause_error`)
 
 ## Examples
 

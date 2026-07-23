@@ -1,6 +1,6 @@
 # Next.js example
 
-Next.js App Router job board — same JobFinder board as the [React](react.md) / [Vue](vue.md) examples.
+Next.js App Router job board - same JobFinder board as the [React](react.md) / [Vue](vue.md) examples.
 
 Uses `@getjobbox/sdk` only in **Route Handlers**. The browser never sees `JOBBOX_API_KEY`.
 
@@ -44,9 +44,9 @@ SDK calls live in `app/api/**/route.ts` via a small `lib/jobbox.ts` helper.
 |-------|------|----------|
 | `/` | All Jobs | `jobs.list` + category chips |
 | `/hr` | HR Jobs | `jobs.list({ category: 'hr' })` |
-| `GET /api/categories` | — | `jobs.categories()` |
-| `GET /api/jobs` | — | `jobs.list(...)` |
-| `GET /api/jobs/[id]` | — | `jobs.get(id)` |
+| `GET /api/categories` | - | `jobs.categories()` |
+| `GET /api/jobs` | - | `jobs.list(...)` |
+| `GET /api/jobs/[id]` | - | `jobs.get(id)` |
 
 Includes search, category filters, pagination, client-side list/detail cache, and a job detail modal with **Apply on JobBox** → `{NEXT_PUBLIC_JOBBOX_APP_URL}/j/:id`.
 
@@ -54,7 +54,7 @@ Includes search, category filters, pagination, client-side list/detail cache, an
 
 ## Notes
 
-- No Python proxy mode in this example — Node SDK only (idiomatic Next Route Handlers).
+- No Python proxy mode in this example - Node SDK only (idiomatic Next Route Handlers).
 - Do not import `@getjobbox/sdk` in Client Components.
 
 Repo path: [`examples/next`](https://github.com/getjobbox/sdk/tree/main/examples/next)

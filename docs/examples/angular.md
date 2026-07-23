@@ -1,6 +1,6 @@
 # Angular example
 
-Angular 19 job board — same JobFinder board as the [Vue](vue.md) and [React](react.md) examples.
+Angular 19 job board - same JobFinder board as the [Vue](vue.md) and [React](react.md) examples.
 
 Built with standalone components, signals, `OnPush` change detection, a root `JobsStoreService`, and Phosphor web-component icons.
 

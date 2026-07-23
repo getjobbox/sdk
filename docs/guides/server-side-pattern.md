@@ -115,7 +115,7 @@ Official sample boards follow this pattern:
     echo json_encode($jobbox->jobs->list($params));
     ```
 
-The browser then calls `/api/jobs?search=react` — never JobBox directly.
+The browser then calls `/api/jobs?search=react` - never JobBox directly.
 
 Full framework demos: [CodeIgniter](../examples/codeigniter.md), [Laravel](../examples/laravel.md). For App Router Route Handlers, see [Next.js](../examples/next.md).
 
@@ -125,7 +125,7 @@ Full framework demos: [CodeIgniter](../examples/codeigniter.md), [Laravel](../ex
 
 - Render lists, filters, and detail modals from **your** API JSON.
 - Forward user filter inputs as query params to your proxy.
-- Link “Apply” to the JobBox app URL (e.g. `https://app.getjobbox.com/j/:id`) if that is your product flow — without shipping the partner key.
+- Link “Apply” to the JobBox app URL (e.g. `https://app.getjobbox.com/j/:id`) if that is your product flow - without shipping the partner key.
 
 ---
 

@@ -14,7 +14,7 @@ Construct a `JobBox` client once (typically at process startup) and reuse it. Al
     | `baseUrl` | `https://api.getjobbox.com` | No trailing slash needed |
     | `timeoutMs` | `30000` | Request timeout in milliseconds |
     | `maxRetries` | `2` | Extra GET attempts on `429` / `5xx` |
-    | `appName` | — | Appended to `User-Agent` |
+    | `appName` | - | Appended to `User-Agent` |
     | `fetch` | `globalThis.fetch` | Injectable for tests |
     | `defaultHeaders` | `{}` | Extra headers on every request |
 
@@ -38,7 +38,7 @@ Construct a `JobBox` client once (typically at process startup) and reuse it. Al
     | `base_url` | `https://api.getjobbox.com` | No trailing slash needed |
     | `timeout` | `30.0` | Seconds |
     | `max_retries` | `2` | Extra GET attempts on `429` / `5xx` |
-    | `app_name` | — | Appended to `User-Agent` |
+    | `app_name` | - | Appended to `User-Agent` |
     | `transport` | stdlib `urllib` | Injectable for tests |
     | `default_headers` | `{}` | Extra headers |
 
@@ -63,7 +63,7 @@ Construct a `JobBox` client once (typically at process startup) and reuse it. Al
     | `baseUrl` | `https://api.getjobbox.com` | No trailing slash needed |
     | `timeout` | `30.0` | Seconds |
     | `maxRetries` | `2` | Extra GET attempts on `429` / `5xx` |
-    | `appName` | — | Appended to `User-Agent` |
+    | `appName` | - | Appended to `User-Agent` |
     | `transport` | cURL | Injectable `TransportInterface` or callable |
     | `defaultHeaders` | `[]` | Extra headers |
 

@@ -40,8 +40,8 @@ python3 -m pip install -e ../../python
 npm run dev:python
 ```
 
-1. `server.py` — `getjobbox` on `http://127.0.0.1:5175`
-2. Vite — UI on port **5174**, proxies `/api` → Python
+1. `server.py` - `getjobbox` on `http://127.0.0.1:5175`
+2. Vite - UI on port **5174**, proxies `/api` → Python
 
 Health: `/api/health` → `"sdk":"python"`.
 
@@ -55,9 +55,9 @@ Optional env: `PYTHON` / `PYTHON_BIN`, `PYTHON_API_PORT` (default `5175`).
 |-------|------|----------|
 | `/` | All Jobs | `jobs.list` + category chips |
 | `/hr` | HR Jobs | `jobs.list({ category: 'hr' })` |
-| `GET /api/categories` | — | `jobs.categories()` |
-| `GET /api/jobs` | — | `jobs.list(...)` |
-| `GET /api/jobs/:id` | — | `jobs.get(id)` |
+| `GET /api/categories` | - | `jobs.categories()` |
+| `GET /api/jobs` | - | `jobs.list(...)` |
+| `GET /api/jobs/:id` | - | `jobs.get(id)` |
 
 Includes search, category filters, pagination, cached list/detail state, and a job detail modal with **Apply on JobBox** → `https://app.getjobbox.com/j/:id`.
 

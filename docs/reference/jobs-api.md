@@ -124,6 +124,6 @@ Guide: [Metadata](../guides/metadata.md).
 
 ## Out of scope (v1)
 
-- API key CRUD (`POST /api/v1/api-keys` with JWT) — use the product UI or authenticated REST, not the Jobs SDK
+- API key CRUD (`POST /api/v1/api-keys` with JWT) - use the product UI or authenticated REST, not the Jobs SDK
 - Unauthenticated public website routes (`/jobs/public*`)
 - Applications or other future resources

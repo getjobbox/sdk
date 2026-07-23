@@ -1,6 +1,6 @@
 # CodeIgniter example
 
-CodeIgniter 4 job board — same JobFinder board as the [Vue](vue.md) example, powered by the **PHP SDK** (`getjobbox/sdk`).
+CodeIgniter 4 job board - same JobFinder board as the [Vue](vue.md) example, powered by the **PHP SDK** (`getjobbox/sdk`).
 
 The API key stays on the server. Controllers expose the same local `/api/*` contract; Blade + vanilla JS render the UI.
 
@@ -43,9 +43,9 @@ composer serve
 |-------|------|----------|
 | `/` | All Jobs | `jobs->list` + category chips |
 | `/hr` | HR Jobs | `jobs->list(['category' => 'hr'])` |
-| `GET /api/categories` | — | `jobs->categories()` |
-| `GET /api/jobs` | — | `jobs->list(...)` |
-| `GET /api/jobs/{id}` | — | `jobs->get($id)` |
+| `GET /api/categories` | - | `jobs->categories()` |
+| `GET /api/jobs` | - | `jobs->list(...)` |
+| `GET /api/jobs/{id}` | - | `jobs->get($id)` |
 
 Includes search, category filters, pagination, and a job detail modal with **Apply on JobBox** → `{JOBBOX_APP_URL}/j/:id`.
 

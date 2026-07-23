@@ -203,7 +203,7 @@ class HttpClient:
 
             except JobBoxApiError:
                 raise
-            except Exception as error:  # noqa: BLE001 — mirror Node catch-all for transport
+            except Exception as error:  # noqa: BLE001 - mirror Node catch-all for transport
                 last_error = error
                 is_timeout = isinstance(error, TimeoutError) or (
                     isinstance(error, OSError) and "timed out" in str(error).lower()

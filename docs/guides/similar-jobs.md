@@ -83,7 +83,7 @@ Load the primary job and similar roles in parallel (or sequentially):
 
 ## Empty results
 
-If the API has no similar listings, `jobs` is an empty array — not an error.
+If the API has no similar listings, `jobs` is an empty array - not an error.
 
 === "Node"
 

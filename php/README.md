@@ -140,14 +140,14 @@ try {
 | `baseUrl` | `https://api.getjobbox.com` | No trailing slash needed |
 | `timeout` | `30.0` | Seconds |
 | `maxRetries` | `2` | GET retries on 429/5xx |
-| `appName` | — | Appended to User-Agent |
+| `appName` | - | Appended to User-Agent |
 | `transport` | cURL | Injectable `TransportInterface` or callable for tests |
 | `defaultHeaders` | `[]` | Extra headers |
 
 ## Errors
 
-- `JobBoxApiException` — non-2xx API response (`status`, `apiCode`, `requestId`, `body`)
-- `JobBoxNetworkException` — transport / timeout (`causeError`)
+- `JobBoxApiException` - non-2xx API response (`status`, `apiCode`, `requestId`, `body`)
+- `JobBoxNetworkException` - transport / timeout (`causeError`)
 
 ## Examples
 
