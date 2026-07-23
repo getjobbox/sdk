@@ -10,7 +10,15 @@ Official partner SDKs for the JobBox Integration/SDK API.
 |----------|------|---------|--------|
 | Node.js (TypeScript) | [`node/`](./node) | `@getjobbox/sdk` | Stable (v0.1) |
 | PHP | [`php/`](./php) | `getjobbox/sdk` | Planned |
-| Python | [`python/`](./python) | `getjobbox` / `getjobbox-sdk` | Planned |
+| Python | [`python/`](./python) | `getjobbox` | Stable (v0.1) |
+
+## Examples
+
+| Example | Path | Stack |
+|---------|------|-------|
+| Vue.js job board | [`examples/vue/`](./examples/vue) | Vue 3 + Vite + Node or Python SDK proxy |
+| React job board | [`examples/react/`](./examples/react) | React + Vite + Node or Python SDK proxy |
+| Angular job board | [`examples/angular/`](./examples/angular) | Angular 19 + CLI + Node or Python SDK proxy |
 
 ## Quick facts
 

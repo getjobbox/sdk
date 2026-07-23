@@ -99,6 +99,12 @@ try {
 | `appName` | - | Appended to User-Agent |
 | `fetch` | `globalThis.fetch` | Injectable for tests |
 
+## Examples
+
+- Vue 3 job board: [`../examples/vue`](../examples/vue)
+- React job board: [`../examples/react`](../examples/react)
+- Angular job board: [`../examples/angular`](../examples/angular)
+
 ## Development
 
 ```bash
