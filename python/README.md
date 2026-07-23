@@ -6,11 +6,10 @@ Official JobBox Python SDK.
 
 ## Install
 
-Published on **GitHub Packages**. With a token that has `read:packages`:
+Distributed via **GitHub Releases** (wheel / sdist). Example for `0.1.0`:
 
 ```bash
-pip install getjobbox \
-  --index-url "https://${GITHUB_TOKEN}@pypi.pkg.github.com/getjobbox/simple/"
+pip install "https://github.com/getjobbox/sdk/releases/download/python-v0.1.0/getjobbox-0.1.0-py3-none-any.whl"
 ```
 
 From this repo (editable / local):

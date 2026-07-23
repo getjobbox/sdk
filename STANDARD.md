@@ -136,7 +136,7 @@ Keys are created via authenticated REST (`POST /api/v1/api-keys` with JWT). SDKs
 |----------|----------------------|----------|
 | Node | `@getjobbox/sdk` | GitHub Packages (npm) |
 | PHP | `getjobbox/sdk` | GitHub Releases |
-| Python | `getjobbox` | GitHub Packages (Python) |
+| Python | `getjobbox` | GitHub Releases |
 
 Release tags are language-prefixed and independent: `node-vX.Y.Z`, `php-vX.Y.Z`, `python-vX.Y.Z`. See the root README **Releasing** section.
 

@@ -10,7 +10,7 @@ Official partner SDKs for the JobBox Integration/SDK API.
 |----------|------|---------|--------|----------|
 | Node.js (TypeScript) | [`node/`](./node) | `@getjobbox/sdk` | Stable (v0.1) | GitHub Packages |
 | PHP | [`php/`](./php) | `getjobbox/sdk` | Stable (v0.1) | GitHub Releases |
-| Python | [`python/`](./python) | `getjobbox` | Stable (v0.1) | GitHub Packages |
+| Python | [`python/`](./python) | `getjobbox` | Stable (v0.1) | GitHub Releases |
 
 ## Examples
 
@@ -46,5 +46,5 @@ git push origin node-v0.1.0
 
 The [publish workflow](./.github/workflows/publish.yml) verifies the tag matches package metadata, runs tests, then:
 
-- **Node / Python** → publishes to GitHub Packages
-- **PHP** → creates a GitHub Release with a `getjobbox-sdk-php-X.Y.Z.zip` asset
+- **Node** → publishes to GitHub Packages
+- **Python / PHP** → creates a GitHub Release with installable assets

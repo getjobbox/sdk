@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: publish-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   parse:
@@ -75,20 +75,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@getjobbox'
           cache: npm
           cache-dependency-path: node/package-lock.json
 
       - run: npm ci
       - run: npm test
       - run: npm run build
-      - run: npm publish
+
+      - name: Publish to GitHub Packages
+        run: |
+          echo "@getjobbox:registry=https://npm.pkg.github.com" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-python:
-    name: Publish Python
+    name: Release Python
     needs: parse
     if: needs.parse.outputs.language == 'python'
     runs-on: ubuntu-latest
@@ -110,19 +113,32 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install and test
+      - name: Install, test, and build
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e ".[dev]" build twine
+          python -m pip install -e ".[dev]" build
           pytest -q
-
-      - name: Build and publish
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-        run: |
           python -m build
-          twine upload --repository-url "https://upload.pypi.pkg.github.com/getjobbox/" dist/*
+
+      - name: Create GitHub Release
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ needs.parse.outputs.version }}"
+          TAG="${GITHUB_REF_NAME}"
+          NOTES="$(sed -n "/^## ${VERSION}/,/^## /p" python/CHANGELOG.md | sed '$d' | sed '1d')"
+          if [ -z "$NOTES" ]; then
+            NOTES="Python SDK v${VERSION}"
+          fi
+          ASSETS=(python/dist/getjobbox-${VERSION}*)
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "${ASSETS[@]}" --clobber
+          else
+            gh release create "$TAG" "${ASSETS[@]}" \
+              --title "Python SDK v${VERSION}" \
+              --notes "$NOTES"
+          fi
 
   publish-php:
     name: Release PHP
@@ -180,11 +196,16 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION="${{ needs.parse.outputs.version }}"
+          TAG="${GITHUB_REF_NAME}"
+          ZIP="getjobbox-sdk-php-${VERSION}.zip"
           NOTES="$(sed -n "/^## ${VERSION}/,/^## /p" php/CHANGELOG.md | sed '$d' | sed '1d')"
           if [ -z "$NOTES" ]; then
             NOTES="PHP SDK v${VERSION}"
           fi
-          gh release create "${GITHUB_REF_NAME}" \
-            "getjobbox-sdk-php-${VERSION}.zip" \
-            --title "PHP SDK v${VERSION}" \
-            --notes "$NOTES"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$ZIP" --clobber
+          else
+            gh release create "$TAG" "$ZIP" \
+              --title "PHP SDK v${VERSION}" \
+              --notes "$NOTES"
+          fi
