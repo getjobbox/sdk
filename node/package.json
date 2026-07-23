@@ -7,8 +7,8 @@
   "author": "JobBox",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/getjobbox/jobbox.git",
-    "directory": "sdk/node"
+    "url": "git+https://github.com/getjobbox/sdk.git",
+    "directory": "node"
   },
   "homepage": "https://getjobbox.com",
   "engines": {
@@ -38,6 +38,7 @@
     "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "devDependencies": {

@@ -6,6 +6,15 @@ Official JobBox Python SDK.
 
 ## Install
 
+Published on **GitHub Packages**. With a token that has `read:packages`:
+
+```bash
+pip install getjobbox \
+  --index-url "https://${GITHUB_TOKEN}@pypi.pkg.github.com/getjobbox/simple/"
+```
+
+From this repo (editable / local):
+
 ```bash
 pip install -e .
 # or with test deps:
@@ -113,7 +122,7 @@ except JobBoxApiError as err:
 ## Development
 
 ```bash
-cd sdk/python
+cd python
 python -m pip install -e ".[dev]"
 pytest -q
 ```

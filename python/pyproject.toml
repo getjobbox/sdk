@@ -29,8 +29,8 @@ dev = ["pytest>=8.0"]
 
 [project.urls]
 Homepage = "https://getjobbox.com"
-Documentation = "https://github.com/getjobbox/jobbox/tree/main/sdk/python"
-Repository = "https://github.com/getjobbox/jobbox"
+Documentation = "https://github.com/getjobbox/sdk/tree/main/python"
+Repository = "https://github.com/getjobbox/sdk"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/getjobbox"]

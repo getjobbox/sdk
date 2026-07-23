@@ -134,9 +134,11 @@ Keys are created via authenticated REST (`POST /api/v1/api-keys` with JWT). SDKs
 
 | Language | Package name (target) | Registry |
 |----------|----------------------|----------|
-| Node | `@getjobbox/sdk` | npm |
-| PHP | `getjobbox/sdk` | Packagist (later) |
-| Python | `getjobbox` or `getjobbox-sdk` | PyPI (later) |
+| Node | `@getjobbox/sdk` | GitHub Packages (npm) |
+| PHP | `getjobbox/sdk` | GitHub Releases |
+| Python | `getjobbox` | GitHub Packages (Python) |
+
+Release tags are language-prefixed and independent: `node-vX.Y.Z`, `php-vX.Y.Z`, `python-vX.Y.Z`. See the root README **Releasing** section.
 
 1. Use semantic versioning; breaking wire or public API changes bump major.
 2. Each package ships `CHANGELOG.md` and `LICENSE`.
@@ -149,6 +151,7 @@ Keys are created via authenticated REST (`POST /api/v1/api-keys` with JWT). SDKs
 - `sideEffects: false` when accurate
 - Publish surface limited via `files` (e.g. `dist`, README, LICENSE)
 - Prefer zero runtime dependencies; use native `fetch` (injectable for tests)
+- `publishConfig.registry` → `https://npm.pkg.github.com`
 
 ---
 
@@ -215,4 +218,6 @@ Use this checklist when reviewing any language SDK PR:
 ## 12. Reference implementation
 
 - **Node (TypeScript):** [`sdk/node`](./node) - package `@getjobbox/sdk`
+- **Python:** [`sdk/python`](./python) - package `getjobbox`
+- **PHP:** [`sdk/php`](./php) - package `getjobbox/sdk`
 - HTTP surface implemented by JobBox API: `/api/v1/sdk/jobs*`

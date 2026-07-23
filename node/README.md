@@ -6,6 +6,15 @@ Official JobBox Node.js / TypeScript SDK.
 
 ## Install
 
+Published on **GitHub Packages** (npm). Add a project `.npmrc`:
+
+```ini
+@getjobbox:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+`GITHUB_TOKEN` (or a PAT) needs `read:packages`. Then:
+
 ```bash
 npm install @getjobbox/sdk
 ```
@@ -108,7 +117,7 @@ try {
 ## Development
 
 ```bash
-cd sdk/node
+cd node
 npm install
 npm run build
 npm test

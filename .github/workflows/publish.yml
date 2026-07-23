@@ -1,0 +1,190 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'node-v*'
+      - 'python-v*'
+      - 'php-v*'
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  parse:
+    name: Parse tag
+    runs-on: ubuntu-latest
+    outputs:
+      language: ${{ steps.tag.outputs.language }}
+      version: ${{ steps.tag.outputs.version }}
+    steps:
+      - id: tag
+        name: Extract language and version
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          case "$TAG" in
+            node-v*)
+              LANG=node
+              VERSION="${TAG#node-v}"
+              ;;
+            python-v*)
+              LANG=python
+              VERSION="${TAG#python-v}"
+              ;;
+            php-v*)
+              LANG=php
+              VERSION="${TAG#php-v}"
+              ;;
+            *)
+              echo "Unsupported tag: $TAG"
+              exit 1
+              ;;
+          esac
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([.-].+)?$ ]]; then
+            echo "Invalid semver in tag: $VERSION"
+            exit 1
+          fi
+          echo "language=$LANG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Publishing $LANG@$VERSION from tag $TAG"
+
+  publish-node:
+    name: Publish Node
+    needs: parse
+    if: needs.parse.outputs.language == 'node'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: node
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify package version matches tag
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if [ "$PKG_VERSION" != "${{ needs.parse.outputs.version }}" ]; then
+            echo "package.json version ($PKG_VERSION) != tag version (${{ needs.parse.outputs.version }})"
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@getjobbox'
+          cache: npm
+          cache-dependency-path: node/package-lock.json
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-python:
+    name: Publish Python
+    needs: parse
+    if: needs.parse.outputs.language == 'python'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify package version matches tag
+        run: |
+          PKG_VERSION=$(python3 -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          if [ "$PKG_VERSION" != "${{ needs.parse.outputs.version }}" ]; then
+            echo "pyproject.toml version ($PKG_VERSION) != tag version (${{ needs.parse.outputs.version }})"
+            exit 1
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install and test
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]" build twine
+          pytest -q
+
+      - name: Build and publish
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m build
+          twine upload --repository-url "https://upload.pypi.pkg.github.com/getjobbox/" dist/*
+
+  publish-php:
+    name: Release PHP
+    needs: parse
+    if: needs.parse.outputs.language == 'php'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: php
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify Version.php matches tag
+        run: |
+          PKG_VERSION=$(php -r 'require "src/Version.php"; echo \GetJobBox\Version::STRING;')
+          if [ "$PKG_VERSION" != "${{ needs.parse.outputs.version }}" ]; then
+            echo "Version.php ($PKG_VERSION) != tag version (${{ needs.parse.outputs.version }})"
+            exit 1
+          fi
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: curl, json
+          coverage: none
+          tools: composer:v2
+
+      - name: Install and test
+        run: |
+          composer install --no-interaction --prefer-dist
+          composer test
+
+      - name: Build release zip
+        working-directory: .
+        run: |
+          VERSION="${{ needs.parse.outputs.version }}"
+          STAGE="getjobbox-sdk-php-${VERSION}"
+          mkdir -p "/tmp/${STAGE}"
+          rsync -a \
+            --exclude 'tests/' \
+            --exclude 'vendor/' \
+            --exclude '.phpunit.cache/' \
+            --exclude 'composer.lock' \
+            --exclude '.gitignore' \
+            php/ "/tmp/${STAGE}/"
+          (
+            cd /tmp
+            zip -r "${GITHUB_WORKSPACE}/getjobbox-sdk-php-${VERSION}.zip" "${STAGE}"
+          )
+          ls -la "getjobbox-sdk-php-${VERSION}.zip"
+
+      - name: Create GitHub Release
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ needs.parse.outputs.version }}"
+          NOTES="$(sed -n "/^## ${VERSION}/,/^## /p" php/CHANGELOG.md | sed '$d' | sed '1d')"
+          if [ -z "$NOTES" ]; then
+            NOTES="PHP SDK v${VERSION}"
+          fi
+          gh release create "${GITHUB_REF_NAME}" \
+            "getjobbox-sdk-php-${VERSION}.zip" \
+            --title "PHP SDK v${VERSION}" \
+            --notes "$NOTES"

@@ -6,11 +6,11 @@ Official partner SDKs for the JobBox Integration/SDK API.
 
 ## Languages
 
-| Language | Path | Package | Status |
-|----------|------|---------|--------|
-| Node.js (TypeScript) | [`node/`](./node) | `@getjobbox/sdk` | Stable (v0.1) |
-| PHP | [`php/`](./php) | `getjobbox/sdk` | Planned |
-| Python | [`python/`](./python) | `getjobbox` | Stable (v0.1) |
+| Language | Path | Package | Status | Registry |
+|----------|------|---------|--------|----------|
+| Node.js (TypeScript) | [`node/`](./node) | `@getjobbox/sdk` | Stable (v0.1) | GitHub Packages |
+| PHP | [`php/`](./php) | `getjobbox/sdk` | Stable (v0.1) | GitHub Releases |
+| Python | [`python/`](./python) | `getjobbox` | Stable (v0.1) | GitHub Packages |
 
 ## Examples
 
@@ -28,3 +28,23 @@ Official partner SDKs for the JobBox Integration/SDK API.
 - **Env var for keys:** `JOBBOX_API_KEY`
 
 Create keys with a JobBox session JWT via `POST /api/v1/api-keys`. Never commit plaintext keys.
+
+## Releasing
+
+Languages version and publish independently. Bump the version in that language’s metadata + `CHANGELOG.md`, commit, then tag and push:
+
+| Language | Version file | Tag |
+|----------|--------------|-----|
+| Node | `node/package.json` | `node-vX.Y.Z` |
+| Python | `python/pyproject.toml` | `python-vX.Y.Z` |
+| PHP | `php/src/Version.php` | `php-vX.Y.Z` |
+
+```bash
+git tag node-v0.1.0
+git push origin node-v0.1.0
+```
+
+The [publish workflow](./.github/workflows/publish.yml) verifies the tag matches package metadata, runs tests, then:
+
+- **Node / Python** → publishes to GitHub Packages
+- **PHP** → creates a GitHub Release with a `getjobbox-sdk-php-X.Y.Z.zip` asset
