@@ -6,6 +6,8 @@ Official partner SDKs for the JobBox Integration/SDK API.
 
 **Canonical rules:** [STANDARD.md](./STANDARD.md) - all languages must follow it.
 
+**EA architecture pack (Pack 15):** [`docs/ea/products/sdk/`](../docs/ea/products/sdk/) — system context, PlantUML, DOCX.
+
 ### Preview docs locally
 
 ```bash
